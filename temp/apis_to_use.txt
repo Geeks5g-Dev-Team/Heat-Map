@@ -1,0 +1,16 @@
+
+Maps Embed API: Discover easily the place
+Geocoding API: Find and divide the radius between concurrent places and get it's coordinates.
+Places API: Get business and place information to analyze
+Places Insights API: Analyze the place distribution information for the insight of the business
+
+INVESTIGATE FURTHER
+
+Haversine formula
+
+NOTES
+
+Dado un punto de entrada con latitud y longitud, expandir al radio especificado
+Sumar en kilometraje (0.1 po 111km) por cada grado en longitud y latitud por el radio completo
+Dividir por 10 al radio especificado, convertir a km y convertir grado para latitud y longitud
+Sumar cada grado a la latitud y longitud y retornar en una matriz el recuadro de separacion para el radio
