@@ -1,33 +1,32 @@
 from lib.radius_grid.GridGenerator import GridGenerator
 from lib.utilities.Spinner import Spinner
+from lib.utilities.Json import Json
+import asyncio
 
 
-def main():
+async def main():
     grid_generator = GridGenerator()
 
-    address = "3014 W Palmira Ave STE 302, Tampa, FL 33629, United States"
+    address = "Bammel S.M.O.K.E Shop | CBD| Kratom| Vape Shop| Hookah| Delta 8| THC-O| THC Vape | THC Flower"
     spinner = Spinner()
+
     spinner.start()
-    analysis = grid_generator.run(
+    analysis = await grid_generator.run(
         address=address,
-        cid="17185809657243164573",
+        cid="6311414705666154752",
         keywords=[
-            "GarageDoorRepair",
-            "SlidingGateRepair",
-            "RollUpRepair ",
-            "GateRepair",
-            "GarageDoorBrokenSpring ",
-            "OverheadGate",
-            "GateMotorRepair ",
-            "LiftmasterRepair",
-            "RamsetGateMotorRepair"
+            "Tobacco shop",
+            "Cigar shop",
+            "Hookah Shop",
+            "Vaporiser Shop",
+            "Tobacco supplier"
         ],
-        radius_km=200
+        radius_km=50,
+        step_km=5
     )
 
-    print(analysis)
     spinner.stop()
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

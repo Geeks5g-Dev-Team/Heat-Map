@@ -6,6 +6,9 @@ import googlemaps
 import time
 import pandas as pd
 from lib.radius_grid_rules.KeywordRankingRule import KeywordRankingRule
+import threading
+from lib.radius_grid_rules.KeywordRankingRule import AnalyzeRankingWithKeywordsReturnParams
+from lib.radius_grid.ShowMap import ShowMap
 
 
 class GridGenerator ():
@@ -14,8 +17,8 @@ class GridGenerator ():
     API_KEY = "AIzaSyCQCXzX0yOAUaIUELv3aI1mIvjPtN8hgZ8"
 
     def __init__(self):
-        self.gmaps = googlemaps.Client(key=self.API_KEY)
         self.keyword_ranking_rules = KeywordRankingRule()
+        self.map = ShowMap()
 
     def _haversine_distance(self, lat1, lon1, lat2, lon2):
         dlat = radians(lat2 - lat1)
@@ -51,87 +54,49 @@ class GridGenerator ():
                 lat, lng, keywords, google_maps_url)
 
             return result
-        except Exception:
-            return []
+        except Exception as e:
+            print(f"Error: {e}")
+            return None
 
-    async def async_search(self, grid_points, keywords, main_business_cid):
-        tasks = []
-        for point in grid_points:
-            lat, lng = point
-            task = asyncio.to_thread(
-                self.search_places, lat, lng, keywords, main_business_cid)
-            tasks.append(task)
-        results = await asyncio.gather(*tasks)
-        return [place for result in results for place in result]
+    async def get_places_at_grid_row(self, keywords, lat, lng, radius_km, step_km, main_business_cid):
 
-    def show_map(self, lat, lng, rows):
-
-        map_center = (lat, lng)
-        m = folium.Map(location=map_center, zoom_start=14)
-
-        for row in rows:
-            folium.Marker(
-                location=(row['lat'], row['lng']),
-                popup=f"{row['name']} ({row['rating']})"
-            ).add_to(m)
-
-        m.save("map.html")
-
-    def geocode(self, address):
-
-        geocode_result = self.gmaps.geocode(address)[0]
-        location = geocode_result["geometry"]["location"]
-        lat, lng = location["lat"], location["lng"]
-
-        return lat, lng
-
-    def get_places_at_grid_row(self, keywords, lat, lng, radius_km, step_km, main_business_cid):
-
-        places = {}
         grid_points = self.generate_grid(lat, lng, radius_km, step_km)
 
-        for point in grid_points:
-            lat, lng = point
-            places_at_point = self.search_places(
-                lat, lng, keywords, main_business_cid)
-            places[lat] = places_at_point
-            time.sleep(1)
+        half_grid = grid_points[0:(len(grid_points) - 1) // 2]
+        final_half_grid = grid_points[(
+            (len(grid_points) - 1) // 2) + 1:len(grid_points) - 1]
 
-        return places
+        thread_1 = [
+            asyncio.to_thread(self.search_places, g_lat,
+                              g_lng, keywords, main_business_cid)
+            for g_lat, g_lng in half_grid
+        ]
 
-    def run(self, address, keywords, cid, radius_km):
+        thread_2 = [
+            asyncio.to_thread(self.search_places, g_lat,
+                              g_lng, keywords, main_business_cid)
+            for g_lat, g_lng in final_half_grid
+        ]
+        # tasks = [asyncio.to_thread(self.search_places,
+        #                            grid_lat, grid_lng, keywords, main_business_cid) for grid_lat, grid_lng in grid_points]
 
-        # lat, lng = self.geocode(address)
-        lat, lng = 40.234265568726364, -74.27414284183483
-#
-#         df = self.get_places_at_grid_row(
-#             "Clean carpet near me", lat, lng, 40, 4)
+        searches = await asyncio.gather(*[*thread_1, *thread_2])
 
-        # self.show_map(lat, lng, df.iterrows())
+        return searches
 
-        places = self.get_places_at_grid_row(
+    async def run(self, address, keywords, cid, radius_km, step_km):
+
+        lat, lng = 29.9357285, -95.49863359999999
+
+        places = await self.get_places_at_grid_row(
             keywords=keywords,
             lat=lat,
             lng=lng,
             main_business_cid=cid,
             radius_km=radius_km,
-            step_km=radius_km / 10,
+            step_km=step_km,
         )
 
-#         new_grid = [
-#             {
-#                 "lat":
-#             }
-#             for place in places
-#         ]
-#
-#         new_grid = [{
-#             "lat": lat,
-#             "lng": lng,
-#             "name": lat,
-#             "rating": 5
-#         } for lat, lng in grid]
-
-        # self.show_map(lat, lng, new_grid)
+        self.map.show_map(lat, lng, places, "Bemmel")
 
         return places

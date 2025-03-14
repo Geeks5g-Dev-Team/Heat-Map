@@ -1,6 +1,6 @@
 
 from typing import List, Optional, Dict, Any
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
 
 
@@ -99,39 +99,46 @@ class DisplayName:
 class LocationTargetDTO:
     name: str
     id: str
-    types: List[str]
-    nationalPhoneNumber: str
-    internationalPhoneNumber: str
-    formattedAddress: str
-    addressComponents: List[AddressComponent]
-    plusCode: PlusCode
-    location: LatLng
-    viewport: Viewport
-    rating: float
-    googleMapsUri: str
-    websiteUri: str
-    regularOpeningHours: OpeningHours
-    utcOffsetMinutes: int
-    adrFormatAddress: str
-    businessStatus: str
-    priceLevel: str
-    userRatingCount: int
-    iconMaskBaseUri: str
-    iconBackgroundColor: str
-    displayName: DisplayName
-    primaryTypeDisplayName: DisplayName
-    takeout: bool
-    delivery: bool
-    dineIn: bool
-    curbsidePickup: bool
-    reservable: bool
-    servesLunch: bool
-    servesDinner: bool
-    servesBeer: bool
-    servesWine: bool
-    servesBrunch: bool
-    currentOpeningHours: OpeningHours
-    primaryType: str
-    shortFormattedAddress: str
-    reviews: List[Review]
-    photos: List[Photo]
+    types: List[str] = field(default_factory=list)
+    nationalPhoneNumber: Optional[str] = None
+    internationalPhoneNumber: Optional[str] = None
+    formattedAddress: Optional[str] = None
+    addressComponents: List[Any] = field(default_factory=list)
+    plusCode: Optional[Any] = None
+    location: Optional[Any] = None
+    viewport: Optional[Any] = None
+    rating: Optional[float] = None
+    googleMapsUri: Optional[str] = None
+    websiteUri: Optional[str] = None
+    regularOpeningHours: Optional[Any] = None
+    utcOffsetMinutes: Optional[int] = None
+    adrFormatAddress: Optional[str] = None
+    businessStatus: Optional[str] = None
+    priceLevel: Optional[str] = None
+    userRatingCount: Optional[int] = None
+    iconMaskBaseUri: Optional[str] = None
+    iconBackgroundColor: Optional[str] = None
+    displayName: Optional[Any] = None
+    primaryTypeDisplayName: Optional[Any] = None
+    takeout: Optional[bool] = None
+    delivery: Optional[bool] = None
+    dineIn: Optional[bool] = None
+    curbsidePickup: Optional[bool] = None
+    reservable: Optional[bool] = None
+    servesLunch: Optional[bool] = None
+    servesDinner: Optional[bool] = None
+    servesBeer: Optional[bool] = None
+    servesWine: Optional[bool] = None
+    servesBrunch: Optional[bool] = None
+    currentOpeningHours: Optional[Any] = None
+    primaryType: Optional[str] = None
+    shortFormattedAddress: Optional[str] = None
+    reviews: List[Any] = field(default_factory=list)
+    photos: List[Any] = field(default_factory=list)
+
+    @classmethod
+    def from_dict(cls, data: dict):
+        """Creates an instance from a dictionary while ignoring extra fields."""
+        filtered_data = {key: data[key]
+                         for key in cls.__annotations__.keys() if key in data}
+        return cls(**filtered_data)

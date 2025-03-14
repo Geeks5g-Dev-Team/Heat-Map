@@ -43,7 +43,7 @@ class NearbyPlaces ():
             "includePureServiceAreaBusinesses": True,
             "languageCode": language_code,
             "locationBias": {
-                "square": {
+                "circle": {
                     "center": {
                         "latitude": lat,
                         "longitude": lng
@@ -55,7 +55,7 @@ class NearbyPlaces ():
         headers = {
             "Content-Type": "application/json",
             "X-Goog-Api-Key": self.google_config.get_google_secret_key(),
-            "X-Goog-FieldMask": "*"
+            "X-Goog-FieldMask": "places.id,places.location,places.rating,places.googleMapsUri,places.businessStatus,places.displayName,places.name"
             # "X-Goog-FieldMask": "places.name,places-id,places-types,places.nationalPhoneNumber,places.internationalPhoneNumber,places.viewport,places.rating,places.googleMapsUri,places.regular"
         }
 
