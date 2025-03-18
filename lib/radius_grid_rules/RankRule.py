@@ -1,4 +1,7 @@
 from lib.radius_grid_rules.KeywordRankingRule import AnalyzeRankingReturnParams
+from typing import Literal
+
+ColorType = Literal["success", "warn", "info", "danger"]
 
 
 class RankRule ():
@@ -21,3 +24,14 @@ class RankRule ():
     def ranks_validation(self, ranks: AnalyzeRankingReturnParams):
 
         self.set_percentage_within_a_number(ranks.rank, ranks.ranking)
+
+    def avg_number_into_icon_info(self, grid_rank) -> ColorType:
+
+        if grid_rank > 70:
+            return "success"
+        elif 60 > grid_rank < 40:
+            return "info"
+        elif 30 > grid_rank < 10:
+            return "warn"
+        elif grid_rank <= 10:
+            return "danger"

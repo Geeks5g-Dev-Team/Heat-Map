@@ -6,6 +6,7 @@ from datatypes.DataTypeError import CustomError
 
 @dataclass
 class AnalyzeRankingReturnParams ():
+    """Datatype for each search term"""
 
     rank: int
     location: Optional[LocationTargetDTO]
@@ -19,6 +20,7 @@ class AnalyzeRankingWithKeywords ():
     keyword: str
     location_rank: AnalyzeRankingReturnParams
     all_locations_found: list[LocationTargetDTO]
+    percentage: int
 
 
 @dataclass

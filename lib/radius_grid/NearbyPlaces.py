@@ -36,7 +36,7 @@ class NearbyPlaces ():
 
         return request, result
 
-    def get_nearby_places_by_keyword(self, lat, lng, keyword, language_code="en"):
+    def get_nearby_places_by_keyword(self, lat, lng, keyword, radius, language_code="en"):
 
         payload = {
             "textQuery": keyword,
@@ -48,6 +48,8 @@ class NearbyPlaces ():
                         "latitude": lat,
                         "longitude": lng
                     },
+
+                    "radius": radius
                 }
             }
         }

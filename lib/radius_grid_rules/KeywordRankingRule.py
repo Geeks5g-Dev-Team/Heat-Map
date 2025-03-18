@@ -13,6 +13,7 @@ class KeywordRankingRule ():
         self.iterations_allowed = 3
 
     def analyze_ranking(self, location_target: list[dict], main_location_url: str) -> AnalyzeRankingReturnParams:
+        """Analyze each search term given a keyword. It returns the element found and its rank"""
 
         location_count = len(location_target)
         rank = AnalyzeRankingReturnParams(
@@ -91,7 +92,12 @@ class KeywordRankingRule ():
 
         try:
             _, place = self.nearby_places.get_nearby_places_by_keyword(
-                lat, lng, keyword, "en")
+                keyword=keyword,
+                lat=lat,
+                language_code="en",
+                lng=lng,
+                radius=500
+            )
 
             location_rank = self.analyze_ranking(
                 place["places"], main_location_url)
@@ -100,7 +106,9 @@ class KeywordRankingRule ():
                 keyword=keyword,
                 location_rank=location_rank,
                 all_locations_found=[LocationTargetDTO.from_dict(
-                    p) for p in place["places"]]
+                    p) for p in place["places"]],
+                percentage=location_rank.location.location[0:len(
+                    location_rank)] + 1
             )
 
             return location_rank.percentage, targets

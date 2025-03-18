@@ -1,39 +1,43 @@
 from lib.radius_grid_rules.KeywordRankingRule import AnalyzeRankingWithKeywordsReturnParams
-import folium
 import googlemaps
 from config.GoogleConfig import GoogleConfig
+import os
+from pathlib import Path
+from lib.utilities.CustomFolium import Folium
 
 
 class ShowMap():
 
     def __init__(self):
         self.google_config = GoogleConfig()
-        print(f"api key: {self.google_config.get_google_secret_key()}")
         self.gmaps = googlemaps.Client(
             key=self.google_config.get_google_secret_key())
+        self.fm = Folium()
 
     def show_map(self, lat, lng, rows: list[AnalyzeRankingWithKeywordsReturnParams | None], map_name):
 
         map_center = (lat, lng)
-        m = folium.Map(location=map_center, zoom_start=14, tiles="https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png",
-                       attr='<a href="https://github.com/cyclosm/cyclosm-cartocss-style/releases" title="CyclOSM - Open Bicycle render">CyclOSM</a> | Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors')
-        lines = []
+        m = self.fm.map(
+            "BZH",
+            location=map_center,
+            zoom_start=14
+        )
+        # lines = []
         for row in rows:
             if row is None:
                 continue
 
-            folium.Marker(
-                location=(row.lat, row.lng),
-                popup=f"{row.average_percentage}",
-                tooltip="See more info.",
-                icon=folium.Icon(
-                    icon="cloud", color="red" if row.average_percentage <= 0 else "green")
-            ).add_to(m)
+            print(f"Row {row}")
 
-            lines.extend([(row.lat, row.lng), (lat, lng)])
+            self.fm.marker_number(row, location=(
+                row.lat, row.lng), tooltip="See more info")\
+                .add_to(m)
 
-        folium.PolyLine(lines).add_to(m)
-        m.save(f"{map_name}.html")
+            # lines.extend([(row.lat, row.lng), (lat, lng)])
+
+        file_name = os.path.join(os.getcwd(), "maps", f"{map_name}.html")
+        # folium.PolyLine(lines).add_to(m)
+        m.save(file_name)
 
     def geocode(self, address):
 

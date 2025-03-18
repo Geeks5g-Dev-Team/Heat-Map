@@ -2,6 +2,7 @@ from lib.radius_grid.GridGenerator import GridGenerator
 from lib.utilities.Spinner import Spinner
 from lib.utilities.Json import Json
 import asyncio
+from services.scraping.main import ScrapeGoogleMapsSearch
 
 
 async def main():
@@ -13,20 +14,47 @@ async def main():
     spinner.start()
     analysis = await grid_generator.run(
         address=address,
-        cid="6311414705666154752",
+        cid="Philly Buds Dispensary",
         keywords=[
-            "Tobacco shop",
+            "Philly dispensaries",
             "Cigar shop",
-            "Hookah Shop",
-            "Vaporiser Shop",
-            "Tobacco supplier"
+            # "Hookah Shop",
+            # "Vaporiser Shop",
+            # "Tobacco supplier"
         ],
-        radius_km=50,
-        step_km=5
+        radius_km=5,
+        step_km=1
     )
 
     spinner.stop()
 
 
+async def test_scrapped_data():
+
+    scrape_data = ScrapeGoogleMapsSearch(10)
+    d = [
+        await scrape_data.activate(
+            keywords=["restaurant"],
+            lat=29.93602599312856,
+            lng=-95.49861214544639
+        ),
+        await scrape_data.activate(
+            keywords=["bar"],
+            lat=52.51603613511733,
+            lng=13.394612597346114
+        )
+    ]
+
+    scrape_data.display_scraped_data(d[0])
+    scrape_data.display_scraped_data(d[1])
+
 if __name__ == "__main__":
-    asyncio.run(main())
+
+    test = False
+
+    if test:
+
+        asyncio.run(test_scrapped_data())
+
+    else:
+        asyncio.run(main())

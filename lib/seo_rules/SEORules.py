@@ -1,0 +1,4 @@
+
+class SEORules ():
+  
+  pass
