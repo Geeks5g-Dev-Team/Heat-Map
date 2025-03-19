@@ -1,6 +1,6 @@
-from services.grid.DTOs.LocationTargetDTO import LocationTargetDTO
+from services.grid.DTOs.NearbyBusinessDTO import NearbyBusinessData
 from lib.radius_grid.NearbyPlaces import NearbyPlaces
-from datatypes.KeywordRankingRuleDatatypes import AnalyzeRankingReturnParams, AnalyzeRankingWithKeywords, AnalyzeRankingWithKeywordsReturnParams
+from datatypes.KeywordRankingRuleByScrappingDatatypes import FinalRankAnalysis, RankingKeyword, LocationRank
 from datatypes.DataTypeError import CustomError
 from lib.radius_grid_rules.RankRule import RankRule
 
@@ -12,19 +12,19 @@ class KeywordRankingRule ():
         self.rank_rule = RankRule()
         self.iterations_allowed = 3
 
-    def analyze_ranking(self, location_target: list[dict], main_location_url: str) -> AnalyzeRankingReturnParams:
+    def analyze_ranking(self, location_target: list[dict], cid: str) -> LocationRank:
         """Analyze each search term given a keyword. It returns the element found and its rank"""
 
         location_count = len(location_target)
-        rank = AnalyzeRankingReturnParams(
-            len(location_target) + 1, None, len(location_target), 0)
+        rank = LocationRank(
+            location_count + 1, None, location_count, 0)
         try:
 
             i = 0
             while i < location_count - 1:
-                target = LocationTargetDTO.from_dict(location_target[i])
-                if target.googleMapsUri == main_location_url:
-                    rank = AnalyzeRankingReturnParams(
+                target = NearbyBusinessData.from_dict(location_target[i])
+                if target.place_id == cid:
+                    rank = LocationRank(
                         location=target,
                         rank=i+1,
                         ranking=location_count,
@@ -33,45 +33,41 @@ class KeywordRankingRule ():
                     )
                     break
                 i += 1
-            print(f"Rank: {rank.location}")
             return rank
 
         except Exception as e:
             print(f"Error: {e}")
             return rank
 
-    def analyze_ranking_by_keywords(self, lat, lng, keywords, main_location_url: str) -> AnalyzeRankingWithKeywordsReturnParams:
+    def analyze_ranking_by_keywords(self, lat, lng, keywords, cid: str) -> FinalRankAnalysis:
 
         analyzed_targets = []
         percentage_values = []
         for keyword in keywords:
 
-            current_iterations_per_search = 0
+            # current_iterations_per_search = 0
             percentage, search_statement = self.return_search_keyword_statement(
                 lat=lat,
                 lng=lng,
                 keyword=keyword,
-                main_location_url=main_location_url
+                cid=cid
             )
 
-            print(
-                f"Instance {search_statement}, Is instance {isinstance(search_statement, CustomError)}")
-
-            def is_location_none(search_statement=search_statement): return isinstance(
-                search_statement, CustomError) or search_statement.location_rank.location is None
-
-            if is_location_none() and current_iterations_per_search < self.iterations_allowed:
-
-                while current_iterations_per_search < self.iterations_allowed or is_location_none():
-
-                    percentage, search_statement = self.return_search_keyword_statement(
-                        lat=lat,
-                        lng=lng,
-                        keyword=keyword,
-                        main_location_url=main_location_url
-                    )
-
-                    current_iterations_per_search += 1
+#             def is_location_none(search_statement=search_statement): return isinstance(
+#                 search_statement, CustomError) or search_statement.location_rank.location is None
+# 
+#             if is_location_none() and current_iterations_per_search < self.iterations_allowed:
+# 
+#                 while current_iterations_per_search < self.iterations_allowed or is_location_none():
+# 
+#                     percentage, search_statement = self.return_search_keyword_statement(
+#                         lat=lat,
+#                         lng=lng,
+#                         keyword=keyword,
+#                         cid=cid
+#                     )
+# 
+#                     current_iterations_per_search += 1
 
             analyzed_targets.append(search_statement)
             percentage_values.append(percentage)
@@ -81,14 +77,14 @@ class KeywordRankingRule ():
         if len(percentage_values) != 0:
             avg_percentage = self.rank_rule.average_percentage_value(
                 *percentage_values)
-        return AnalyzeRankingWithKeywordsReturnParams(
+        return FinalRankAnalysis(
             data=analyzed_targets,
             lat=lat,
             lng=lng,
             average_percentage=avg_percentage
         )
 
-    def return_search_keyword_statement(self, lat, lng, keyword, main_location_url):
+    def return_search_keyword_statement(self, lat, lng, keyword, cid):
 
         try:
             _, place = self.nearby_places.get_nearby_places_by_keyword(
@@ -100,13 +96,11 @@ class KeywordRankingRule ():
             )
 
             location_rank = self.analyze_ranking(
-                place["places"], main_location_url)
+                place["places"], cid)
 
-            targets = AnalyzeRankingWithKeywords(
+            targets = RankingKeyword(
                 keyword=keyword,
                 location_rank=location_rank,
-                all_locations_found=[LocationTargetDTO.from_dict(
-                    p) for p in place["places"]],
                 percentage=location_rank.location.location[0:len(
                     location_rank)] + 1
             )

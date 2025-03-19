@@ -27,7 +27,7 @@ class NearbyPlaces ():
         headers = {
             "Content-Type": "application/json",
             "X-Goog-Api-Key": self.google_config.get_google_secret_key(),
-            "X-Goog-FieldMask": "*"
+            "X-Goog-FieldMask": "places.id,places.location,places.rating,places.googleMapsUri,places.businessStatus,places.displayName,places.name"
         }
 
         request = requests.post(self.NEARBY_PLACE_BY_TYPE_URL,

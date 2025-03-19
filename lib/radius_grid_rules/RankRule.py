@@ -1,4 +1,4 @@
-from lib.radius_grid_rules.KeywordRankingRule import AnalyzeRankingReturnParams
+from datatypes.KeywordRankingRuleByScrappingDatatypes import LocationRank
 from typing import Literal
 
 ColorType = Literal["success", "warn", "info", "danger"]
@@ -21,7 +21,7 @@ class RankRule ():
 
         return self.get_percentage_value(self.TARGET_VALUE, avg)
 
-    def ranks_validation(self, ranks: AnalyzeRankingReturnParams):
+    def ranks_validation(self, ranks: LocationRank):
 
         self.set_percentage_within_a_number(ranks.rank, ranks.ranking)
 
@@ -29,9 +29,9 @@ class RankRule ():
 
         if grid_rank > 70:
             return "success"
-        elif 60 > grid_rank < 40:
+        elif 40 <= grid_rank <= 60:
             return "info"
-        elif 30 > grid_rank < 10:
+        elif 10 <= grid_rank <= 30:
             return "warn"
-        elif grid_rank <= 10:
+        else:
             return "danger"

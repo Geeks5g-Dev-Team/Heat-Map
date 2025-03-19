@@ -14,15 +14,12 @@ async def main():
     spinner.start()
     analysis = await grid_generator.run(
         address=address,
-        cid="Philly Buds Dispensary",
+        cid="Bammel S.M.O.K.E Shop | CBD| Kratom| Vape Shop| Hookah| Delta 8| THC-O| THC Vape | THC Flower",
         keywords=[
-            "Philly dispensaries",
-            "Cigar shop",
-            # "Hookah Shop",
-            # "Vaporiser Shop",
-            # "Tobacco supplier"
+            "Vape shop",
+            "Restaurant"
         ],
-        radius_km=5,
+        radius_km=2,
         step_km=1
     )
 
@@ -35,8 +32,8 @@ async def test_scrapped_data():
     d = [
         await scrape_data.activate(
             keywords=["restaurant"],
-            lat=29.93602599312856,
-            lng=-95.49861214544639
+            lat=29.93605980242429,
+            lng=-95.49824496675434
         ),
         await scrape_data.activate(
             keywords=["bar"],

@@ -1,9 +1,10 @@
-from lib.radius_grid_rules.KeywordRankingRule import AnalyzeRankingWithKeywordsReturnParams
+from datatypes.KeywordRankingRuleByScrappingDatatypes import FinalRankAnalysis
 import googlemaps
 from config.GoogleConfig import GoogleConfig
 import os
 from pathlib import Path
 from lib.utilities.CustomFolium import Folium
+from public.html.popup_display import popup_display
 
 
 class ShowMap():
@@ -14,7 +15,7 @@ class ShowMap():
             key=self.google_config.get_google_secret_key())
         self.fm = Folium()
 
-    def show_map(self, lat, lng, rows: list[AnalyzeRankingWithKeywordsReturnParams | None], map_name):
+    def show_map(self, lat, lng, rows: list[FinalRankAnalysis | None], map_name):
 
         map_center = (lat, lng)
         m = self.fm.map(
@@ -27,10 +28,11 @@ class ShowMap():
             if row is None:
                 continue
 
-            print(f"Row {row}")
-
             self.fm.marker_number(row, location=(
-                row.lat, row.lng), tooltip="See more info")\
+                row.lat, row.lng),
+                tooltip="See more info",
+                popup=popup_display(row)
+            )\
                 .add_to(m)
 
             # lines.extend([(row.lat, row.lng), (lat, lng)])

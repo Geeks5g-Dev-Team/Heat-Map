@@ -20,7 +20,10 @@ class KeywordRankingRuleByScrapping ():
         location_count = len(location_target)
 
         rank = LocationRank(
-            len(location_target) + 1, None, len(location_target), 0)
+            location_count + 1, None, location_count + 5,
+            self.rank_rule.set_percentage_within_a_number(
+                location_count + 1, location_count + 5)
+        )
         try:
 
             i = 0
@@ -30,9 +33,9 @@ class KeywordRankingRuleByScrapping ():
                     rank = LocationRank(
                         rank=i+1,
                         location=target,
-                        ranking=location_count,
+                        ranking=i + 5,
                         percentage=self.rank_rule.set_percentage_within_a_number(
-                            i+1, location_count)
+                            i+1, i + 5)
                     )
                     break
                 i += 1
@@ -65,7 +68,6 @@ class KeywordRankingRuleByScrapping ():
             ranked_business_data = RankingKeyword(
                 keyword=k,
                 location_rank=business_ranked,
-                all_locations_found=businesses,
                 percentage=business_ranked.percentage
             )
 

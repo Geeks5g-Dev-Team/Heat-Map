@@ -4,6 +4,9 @@ from playwright.async_api import async_playwright, Geolocation, Locator, Playwri
 from playwright_stealth import stealth
 from datatypes.ScrapeDatatypes import Business
 from random import choice, randint
+import time
+
+# Playwright().chromium.launch(headless=False)
 
 ScrapeReturnType = dict[str, list[Business]]
 
@@ -62,12 +65,24 @@ class ScrapeGoogleMapsSearch:
 
     async def scrape(self, playwright, keywords, lng, lat) -> ScrapeReturnType:
 
-        n = playwright
-        browser = await playwright.chromium.connect(
-            self.cloud_url,
-            headers={
-                'Api-Key': ''}
+        # n = playwright
+        browser = await playwright.chromium.launch(
+            headless=False,  # Headless is more likely to be detected
+            args=[
+                "--no-sandbox",  # Bypass sandbox restrictions
+                "--disable-setuid-sandbox",  # Same as above, different context
+                "--disable-web-security",  # Helps bypass certain CORS issues
+                "--disable-features=IsolateOrigins,site-per-process",  # Avoids isolation detection
+                "--disable-blink-features=AutomationControlled",  # Removes automation flags
+                "--disable-gpu",  # Disables GPU acceleration
+                "--window-size=1920,1080",  # Mimics a real screen size
+                "--enable-webgl",  # Enable WebGL to avoid detection
+                "--allow-running-insecure-content",  # Prevent SSL errors
+                "--disable-popup-blocking",  # Avoid pop-up blocking issues
+                "--disable-dev-shm-usage",  # Helps prevent crashes due to shared memory limits
+            ]
         )
+
         context = await browser.new_context(
             locale="en-GB",
             permissions=["geolocation"],
@@ -84,6 +99,7 @@ class ScrapeGoogleMapsSearch:
             self.current_keyword = k
             await self.page.reload()
             scrape_data[k] = await self.search(k)
+            time.sleep(2000)
 
         await self.page.close()
         await browser.close()
@@ -129,29 +145,29 @@ class ScrapeGoogleMapsSearch:
     async def activate(self, keywords, lat, lng):
         async with async_playwright() as playwright:
 
-            s = {}
-            dispensary_names = [
-                "Philly Green Meds",
-                "Buds & Blooms Dispensary",
-                "Liberty Leaf Philly",
-                "Keystone Kush Dispensary",
-                "Philly Herbal Haven",
-                "Philly Buds Dispensary"
-            ]
-
-            for k in keywords:
-                s[k] = [Business(
-                    address="Example 1",
-                    latitude=lat,
-                    longitude=lng,
-                    name=choice(dispensary_names),
-                    phone_number="036888990",
-                    reviews_average=choice([5.2, 4.3, 1.2, 5.8]),
-                    reviews_count=randint(1, 100),
-                    website="https://www.example.com",
-                )]
-
-            return s
+            #             s = {}
+            #             dispensary_names = [
+            #                 "Philly Green Meds",
+            #                 "Buds & Blooms Dispensary",
+            #                 "Liberty Leaf Philly",
+            #                 "Keystone Kush Dispensary",
+            #                 "Philly Herbal Haven",
+            #                 "Philly Buds Dispensary"
+            #             ]
+            #
+            #             for k in keywords:
+            #                 s[k] = [Business(
+            #                     address="Example 1",
+            #                     latitude=lat,
+            #                     longitude=lng,
+            #                     name=choice(dispensary_names),
+            #                     phone_number="036888990",
+            #                     reviews_average=choice([5.2, 4.3, 1.2, 5.8]),
+            #                     reviews_count=randint(1, 100),
+            #                     website="https://www.example.com",
+            #                 )]
+            #
+            #             return s
             return await self.scrape(playwright, keywords, lng, lat)
 
     def display_scraped_data(self, scraped_data: ScrapeReturnType):

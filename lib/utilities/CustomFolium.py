@@ -3,6 +3,7 @@ from typing import Literal
 from lib.radius_grid_rules.RankRule import RankRule
 from datatypes.KeywordRankingRuleDatatypes import AnalyzeRankingWithKeywordsReturnParams
 from datatypes.KeywordRankingRuleByScrappingDatatypes import FinalRankAnalysis
+from public.html.map_marker_icon import map_marker_icon
 
 TileTypes = Literal["", "MAPNIK", "DE", "CH", "FRANCE", "HOT", "BZH", "CAT", "OSM_ENGLISH",
                     "TOPO_MAP", "ALIDADE_SMOOTH", "ALIDADE_SMOOTH_DARK", "ALIDADE_SATELLITE", "TRANSPORT_DARK"]
@@ -45,15 +46,14 @@ class Folium ():
             color = "yellow"
 
         elif color_type == "info":
-            color = "blue"
+            color = "#dc3545"
 
+        print(color_type)
         return folium.Marker(
-            popup=str(rank.average_percentage),
             **fm_keys,
-            icon=folium.Icon(
-                color=color,
-                icon=rank.average_percentage,
-                prefix="fa",
-                **fm_keys
+            icon=folium.DivIcon(
+                icon_size=(30, 50),
+                icon_anchor=(15, 50),
+                html=map_marker_icon(color, rank.average_percentage)
             )
         )

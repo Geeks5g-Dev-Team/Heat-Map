@@ -5,11 +5,12 @@ import folium
 import googlemaps
 import time
 import pandas as pd
-from lib.radius_grid_rules.KeywordRankingRule import KeywordRankingRule
+# from lib.radius_grid_rules.KeywordRankingRule import KeywordRankingRule
 from lib.radius_grid_rules.KeywordRankingRuleByScrapping import KeywordRankingRuleByScrapping
 import threading
-from lib.radius_grid_rules.KeywordRankingRule import AnalyzeRankingWithKeywordsReturnParams
+# from lib.radius_grid_rules.KeywordRankingRule import AnalyzeRankingWithKeywordsReturnParams
 from lib.radius_grid.ShowMap import ShowMap
+from lib.utilities.thread_handler_execution import thread_handler_execution
 
 
 class GridGenerator ():
@@ -18,7 +19,7 @@ class GridGenerator ():
     API_KEY = "AIzaSyCQCXzX0yOAUaIUELv3aI1mIvjPtN8hgZ8"
 
     def __init__(self):
-        self.keyword_ranking_rules = KeywordRankingRule()
+        # self.keyword_ranking_rules = KeywordRankingRule()
         self.ranking_by_scrapping_rules = KeywordRankingRuleByScrapping()
         self.map = ShowMap()
 
@@ -59,9 +60,10 @@ class GridGenerator ():
                     lng=lng
                 )
             else:
-                google_maps_url = f"https://maps.google.com/?cid={cid}"
-                result = self.keyword_ranking_rules.analyze_ranking_by_keywords(
-                    lat, lng, keywords, google_maps_url)
+                pass
+                # google_maps_url = f"https://maps.google.com/?cid={cid}"
+                # result = self.keyword_ranking_rules.analyze_ranking_by_keywords(
+                #     lat, lng, keywords, google_maps_url)
 
             return result
         except Exception as e:
@@ -72,20 +74,27 @@ class GridGenerator ():
 
         grid_points = self.generate_grid(lat, lng, radius_km, step_km)
 
-        print(f"Grid: {grid_points}")
+        thread_execution = await thread_handler_execution(
+            arr=grid_points,
+            callback=lambda chunk: asyncio.gather(
+                *(self.search_places(ch[0], ch[1], keywords, cid, search_businesses_by_scrapping) for ch in chunk)
+            ),
+            max_workers=5,
+            max_thread_pools=10
+        )
 
         # tasks = [asyncio.to_thread(self.search_places,
         #                            grid_lat, grid_lng, keywords, cid, search_businesses_by_scrapping) for grid_lat, grid_lng in grid_points]
-        tasks = [self.search_places(
-            grid_lat, grid_lng, keywords, cid, search_businesses_by_scrapping) for grid_lat, grid_lng in grid_points]
+        # tasks = [await self.search_places(
+        #     grid_lat, grid_lng, keywords, cid, search_businesses_by_scrapping) for grid_lat, grid_lng in grid_points]
 
-        searches = await asyncio.gather(*tasks)
+        # searches = await asyncio.gather(*tasks)
 
-        return searches
+        return thread_execution
 
     async def run(self, address, keywords, cid, radius_km, step_km):
 
-        lat, lng = 40.04176129273141, -75.06692871303675
+        lat, lng = 29.93605980242429, -95.49824496675434
         search_businesses_by_scrapping = True
 
         places = await self.get_places_at_grid_row(
@@ -97,8 +106,6 @@ class GridGenerator ():
             step_km=step_km,
             search_businesses_by_scrapping=search_businesses_by_scrapping
         )
-
-        print(places)
 
         self.map.show_map(lat, lng, places, "philly")
 

@@ -18,7 +18,7 @@ class RankingKeyword ():
 
     keyword: str
     location_rank: LocationRank
-    all_locations_found: list[Business]
+    all_locations_found = None
     percentage: int
 
 
