@@ -30,7 +30,7 @@ class ShowMap():
 
             self.fm.marker_number(row, location=(
                 row.lat, row.lng),
-                tooltip="See more info",
+                tooltip=f"Latitude: {row.lat} Longitude: {row.lng}",
                 popup=popup_display(row)
             )\
                 .add_to(m)

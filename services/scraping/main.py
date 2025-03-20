@@ -6,7 +6,7 @@ from datatypes.ScrapeDatatypes import Business
 from random import choice, randint
 import time
 
-# Playwright().chromium.launch(headless=False)
+# Playwright().firefox.launch(headless=False)
 
 ScrapeReturnType = dict[str, list[Business]]
 
@@ -49,25 +49,33 @@ class ScrapeGoogleMapsSearch:
         return listings
 
     async def search(self, keyword):
-        current_location_button_selector = 'button:is([aria-label="Your Location"], [aria-label="Show Your Location"])'
-        await self.page.wait_for_selector(current_location_button_selector)
-        await self.page.click(current_location_button_selector)
 
-        await asyncio.sleep(1)
-        search_selector = "input[role='combobox'][id='searchboxinput'][name='q']"
-        await self.page.wait_for_selector(search_selector)
-        await self.page.fill(search_selector, keyword)
-        await self.page.press(search_selector, "Enter")
+        try:
+            current_location_button_selector = 'button:is([aria-label="Your Location"], [aria-label="Show Your Location"], [id="sVuEFc"])'
 
-        listing = await self.get_search_list(self.search_amount)
-        scrapped_data = await self.reorder_scrapped_data(listing)
-        return scrapped_data
+            await self.page.wait_for_selector(current_location_button_selector, timeout=20000)
+            await self.page.click(current_location_button_selector)
 
-    async def scrape(self, playwright, keywords, lng, lat) -> ScrapeReturnType:
+            await asyncio.sleep(1)
+            search_selector = "input[role='combobox'][id='searchboxinput'][name='q']"
+            await self.page.wait_for_selector(search_selector)
+            await self.page.fill(search_selector, keyword)
+            await self.page.press(search_selector, "Enter")
+
+            listing = await self.get_search_list(self.search_amount)
+            scrapped_data = await self.reorder_scrapped_data(listing)
+            return scrapped_data
+
+        except Exception as e:
+
+            print(f"Error at Scraping: {e}")
+            return [Business()]
+
+    async def scrape(self, playwright, keywords, lng, lat, close_context=False) -> ScrapeReturnType:
 
         # n = playwright
-        browser = await playwright.chromium.launch(
-            headless=False,  # Headless is more likely to be detected
+        self.browser = await playwright.chromium.launch(
+            headless=True,  # Headless is more likely to be detected
             args=[
                 "--no-sandbox",  # Bypass sandbox restrictions
                 "--disable-setuid-sandbox",  # Same as above, different context
@@ -80,29 +88,45 @@ class ScrapeGoogleMapsSearch:
                 "--allow-running-insecure-content",  # Prevent SSL errors
                 "--disable-popup-blocking",  # Avoid pop-up blocking issues
                 "--disable-dev-shm-usage",  # Helps prevent crashes due to shared memory limits
+                "--window-size=1920,1080",
+                "--use-fake-ui-for-media-stream"
             ]
         )
 
-        context = await browser.new_context(
+        context = await self.browser.new_context(
             locale="en-GB",
             permissions=["geolocation"],
-            geolocation=Geolocation(latitude=lat, longitude=lng, accuracy=10)
+            geolocation=Geolocation(latitude=lat, longitude=lng, accuracy=10),
+            bypass_csp=True
         )
 
         self.page = await context.new_page()
+
         # await stealth(self.page)
 
-        await self.page.goto("https://www.google.com/maps")
+        async def block_resources(route):
+            if route.request.resource_type in ["image", "font"]:
+                await route.abort()
+            else:
+                await route.continue_()
+
+        # await self.page.route("**/*", block_resources)
+
+        await self.page.goto("https://www.google.com/maps", timeout=120000)
+
+        await self.page.wait_for_url("**://www.google.com/maps/**", timeout=120000)
 
         scrape_data = {}
         for k in keywords:
             self.current_keyword = k
-            await self.page.reload()
+            # await self.page.reload()
             scrape_data[k] = await self.search(k)
-            time.sleep(2000)
 
-        await self.page.close()
-        await browser.close()
+        if close_context:
+            await context.close()
+        else:
+            await self.page.close()
+            await self.browser.close()
 
         return scrape_data
 
@@ -110,35 +134,36 @@ class ScrapeGoogleMapsSearch:
         business_list = []
 
         for lt in listing:
+            business = Business()
             try:
                 await lt.click()
-                await lt.click()
+                # await lt.click()
                 name_attr = 'aria-label'
-                address_xpath = '//button[@data-item-id="address"]'
-                website_xpath = '//a[@data-item-id="authority"]'
+                address_xpath = '//button[contains(@aria-label, "Address:")]'
+                # website_xpath = '//a[@data-item-id="authority"]'
                 phone_number_xpath = '//button[contains(@data-item-id, "phone:tel:")]'
                 review_count_xpath = '//button[@jsaction="pane.reviewChart.moreReviews"]//span'
                 reviews_average_xpath = '//div[@jsaction="pane.reviewChart.moreReviews"]//div[@role="img"]'
 
-                business = Business()
+                business.name = await lt.get_attribute(name_attr, timeout=5000)
 
-                await self.page.wait_for_selector(address_xpath, timeout=10000)
-                business.name = await lt.get_attribute(name_attr)
-
-                business.address = (await self.page.locator(address_xpath).inner_text()) if await self.page.wait_for_selector(address_xpath, timeout=5000).count() > 0 else ""
-                business.website = (await self.page.locator(website_xpath).inner_text()) if await self.page.wait_for_selector(website_xpath, timeout=5000).count() > 0 else ""
-                business.phone_number = (await self.page.locator(phone_number_xpath).inner_text()) if await self.page.wait_for_selector(phone_number_xpath, timeout=5000).count() > 0 else ""
-                business.reviews_count = int(
-                    (await self.page.locator(review_count_xpath).inner_text()).split()[0].replace(',', '').strip()
-                ) if await self.page.locator(review_count_xpath).count() > 0 else ""
-                business.reviews_average = float(
-                    (await self.page.locator(reviews_average_xpath).get_attribute(name_attr)).split()[0].replace(',', '.').strip()
-                ) if await self.page.locator(reviews_average_xpath).count() > 0 else ""
-
-                business.latitude, business.longitude = 10, 15
-                business_list.append(business)
+#                 business.address = await self.page.locator(address_xpath).inner_text()
+#                 # business.website = await self.page.locator(website_xpath).inner_text()
+#                 business.website = ""
+#                 business.phone_number = await self.page.locator(phone_number_xpath).get_attribute("data-item-id", timeout=5000)
+#
+#                 business.reviews_count = int(
+#                     (await self.page.locator(review_count_xpath).inner_text()).split()[0].replace(',', '').strip()
+#                 ) if await self.page.locator(review_count_xpath).count() > 0 else ""
+#                 business.reviews_average = float(
+#                     (await self.page.locator(reviews_average_xpath).get_attribute(name_attr, timeout=5000)).split()[0].replace(',', '.').strip()
+#                 ) if await self.page.locator(reviews_average_xpath).count() > 0 else ""
+#
+#                 business.latitude, business.longitude = 10, 15
             except Exception as e:
                 print(f'Error occurred: {e}')
+            finally:
+                business_list.append(business)
 
         return business_list
 
@@ -169,6 +194,40 @@ class ScrapeGoogleMapsSearch:
             #
             #             return s
             return await self.scrape(playwright, keywords, lng, lat)
+
+    @classmethod
+    async def playwright_instance(cls):
+
+        return await async_playwright().start()
+
+    async def handle_bulk_contexts(self, params: list[dict]):
+
+        async with async_playwright() as p:
+
+            scrapped_data = []
+            for param in params:
+                s = await self.scrape(
+                    keywords=param["keywords"],
+                    lat=param["lat"],
+                    lng=param["lng"],
+                    playwright=p,
+                    close_context=True
+                )
+
+                scrapped_data.append(s)
+
+            # concurrent_scrapped_data = [
+            #     self.scrape(
+            #         keywords=param["keywords"],
+            #         lat=param["lat"],
+            #         lng=param["lng"],
+            #         playwright=p
+            #     )
+            #     for param in params
+            # ]
+
+            return scrapped_data
+            # return await asyncio.gather(*concurrent_scrapped_data)
 
     def display_scraped_data(self, scraped_data: ScrapeReturnType):
         """Prints the scraped business data in a readable format."""

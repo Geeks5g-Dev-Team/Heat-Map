@@ -29,3 +29,4 @@ class FinalRankAnalysis ():
     lat: int
     lng: int
     average_percentage: int
+    final_rank: int

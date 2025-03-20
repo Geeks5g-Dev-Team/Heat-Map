@@ -55,18 +55,18 @@ class KeywordRankingRule ():
 
 #             def is_location_none(search_statement=search_statement): return isinstance(
 #                 search_statement, CustomError) or search_statement.location_rank.location is None
-# 
+#
 #             if is_location_none() and current_iterations_per_search < self.iterations_allowed:
-# 
+#
 #                 while current_iterations_per_search < self.iterations_allowed or is_location_none():
-# 
+#
 #                     percentage, search_statement = self.return_search_keyword_statement(
 #                         lat=lat,
 #                         lng=lng,
 #                         keyword=keyword,
 #                         cid=cid
 #                     )
-# 
+#
 #                     current_iterations_per_search += 1
 
             analyzed_targets.append(search_statement)
@@ -81,7 +81,8 @@ class KeywordRankingRule ():
             data=analyzed_targets,
             lat=lat,
             lng=lng,
-            average_percentage=avg_percentage
+            average_percentage=int(avg_percentage),
+            final_rank=0
         )
 
     def return_search_keyword_statement(self, lat, lng, keyword, cid):

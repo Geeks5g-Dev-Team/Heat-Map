@@ -17,25 +17,22 @@ class KeywordRankingRuleByScrapping ():
     def analyze_ranking(self, location_target: list[Business], business_name: str) -> LocationRank:
         """Analyze each search term given a keyword. It returns the element found and its rank"""
 
-        location_count = len(location_target)
-
         rank = LocationRank(
-            location_count + 1, None, location_count + 5,
-            self.rank_rule.set_percentage_within_a_number(
-                location_count + 1, location_count + 5)
+            self.rank_rule.TARGET_VALUE + 1, None, self.rank_rule.TARGET_VALUE,
+            0
         )
         try:
 
             i = 0
-            while i < location_count - 1:
+            while i < len(location_target) - 1:
                 target = location_target[i]
                 if target.name == business_name:
                     rank = LocationRank(
                         rank=i+1,
                         location=target,
-                        ranking=i + 5,
+                        ranking=self.rank_rule.TARGET_VALUE,
                         percentage=self.rank_rule.set_percentage_within_a_number(
-                            i+1, i + 5)
+                            i+1, self.rank_rule.TARGET_VALUE)
                     )
                     break
                 i += 1
@@ -45,16 +42,16 @@ class KeywordRankingRuleByScrapping ():
             print(f"Error: {e}")
             return rank
 
-    async def analyze_ranking_by_keywords(self, lat, lng, keywords, business_name: str) -> FinalRankAnalysis:
+    async def analyze_ranking_by_keywords(self, lat, lng, keywords, business_name: str, **kwargs) -> FinalRankAnalysis:
 
         analyzed_targets = []
         percentage_values = []
 
-        scrapper = ScrapeGoogleMapsSearch(15)
+        scrapper = ScrapeGoogleMapsSearch(self.rank_rule.TARGET_VALUE)
         businesses = await scrapper.activate(
             keywords=keywords,
             lat=lat,
-            lng=lng
+            lng=lng,
         )
 
         scrapper.display_scraped_data(businesses)
@@ -65,6 +62,7 @@ class KeywordRankingRuleByScrapping ():
                 business_name=business_name,
                 location_target=businesses
             )
+
             ranked_business_data = RankingKeyword(
                 keyword=k,
                 location_rank=business_ranked,
@@ -74,15 +72,14 @@ class KeywordRankingRuleByScrapping ():
             analyzed_targets.append(ranked_business_data)
             percentage_values.append(business_ranked.percentage)
 
-        avg_percentage = 0
-
-        if len(percentage_values) != 0:
-            avg_percentage = self.rank_rule.average_percentage_value(
-                *percentage_values)
+        avg_percentage = self.rank_rule.average_percentage_value(
+            *percentage_values)
 
         return FinalRankAnalysis(
             data=analyzed_targets,
             lat=lat,
             lng=lng,
-            average_percentage=avg_percentage
+            average_percentage=int(avg_percentage),
+            final_rank=int(
+                self.rank_rule.set_number_against_percentage(avg_percentage))
         )

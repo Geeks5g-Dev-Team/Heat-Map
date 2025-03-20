@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c93eb27753f34e59b9cc009511d34fe0 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c93eb27753f34e59b9cc009511d34fe0" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c93eb27753f34e59b9cc009511d34fe0 = L.map(
+                "map_c93eb27753f34e59b9cc009511d34fe0",
+                {
+                    center: [29.93605980242429, -95.49824496675434],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 14,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_81ec3a908196641b0ceef815e17fd3b1 = L.tileLayer(
+                "https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://github.com/cyclosm/cyclosm-cartocss-style/releases\" title=\"CyclOSM - Open Bicycle render\"\u003eCyclOSM\u003c/a\u003e | Map data: \u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_81ec3a908196641b0ceef815e17fd3b1.addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var marker_9f77f35afd83d38b215768edd59a1e13 = L.marker(
+                [29.486398999464924, -95.49824496675434],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_9766758ec4d861bbd8f460e6f8b88a3c = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_9f77f35afd83d38b215768edd59a1e13.setIcon(div_icon_9766758ec4d861bbd8f460e6f8b88a3c);
+        
+    
+        var popup_0015da6be43328c9d1a9930c1943dbf1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b4181cb67b86f25cf5fad108ffe255e5 = $(`<div id="html_b4181cb67b86f25cf5fad108ffe255e5" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_0015da6be43328c9d1a9930c1943dbf1.setContent(html_b4181cb67b86f25cf5fad108ffe255e5);
+            
+        
+
+        marker_9f77f35afd83d38b215768edd59a1e13.bindPopup(popup_0015da6be43328c9d1a9930c1943dbf1)
+        ;
+
+        
+    
+    
+            marker_9f77f35afd83d38b215768edd59a1e13.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9f77f35afd83d38b215768edd59a1e13.setIcon(div_icon_9766758ec4d861bbd8f460e6f8b88a3c);
+            
+    
+            var marker_c35db8cb835362fa86e15f8f91134968 = L.marker(
+                [29.576331160056796, -95.70580079551559],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_3ed71755727c808fcc835e49be780709 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_c35db8cb835362fa86e15f8f91134968.setIcon(div_icon_3ed71755727c808fcc835e49be780709);
+        
+    
+        var popup_fcb8cc95bbae6ff34075d50a64cbe79a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fcdfbe61b0bf530a06be1fc939188950 = $(`<div id="html_fcdfbe61b0bf530a06be1fc939188950" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_fcb8cc95bbae6ff34075d50a64cbe79a.setContent(html_fcdfbe61b0bf530a06be1fc939188950);
+            
+        
+
+        marker_c35db8cb835362fa86e15f8f91134968.bindPopup(popup_fcb8cc95bbae6ff34075d50a64cbe79a)
+        ;
+
+        
+    
+    
+            marker_c35db8cb835362fa86e15f8f91134968.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c35db8cb835362fa86e15f8f91134968.setIcon(div_icon_3ed71755727c808fcc835e49be780709);
+            
+    
+            var marker_66f683e0df024c29e86ed1cada477a72 = L.marker(
+                [29.576331160056796, -95.60202288113496],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_1b81d5d24cd73ff12b3155ad4c43e833 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_66f683e0df024c29e86ed1cada477a72.setIcon(div_icon_1b81d5d24cd73ff12b3155ad4c43e833);
+        
+    
+        var popup_0c0d12659e4ecf8817c7ec5f7920fe8b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_70aecd08c5be802ffb0218696262d037 = $(`<div id="html_70aecd08c5be802ffb0218696262d037" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_0c0d12659e4ecf8817c7ec5f7920fe8b.setContent(html_70aecd08c5be802ffb0218696262d037);
+            
+        
+
+        marker_66f683e0df024c29e86ed1cada477a72.bindPopup(popup_0c0d12659e4ecf8817c7ec5f7920fe8b)
+        ;
+
+        
+    
+    
+            marker_66f683e0df024c29e86ed1cada477a72.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_66f683e0df024c29e86ed1cada477a72.setIcon(div_icon_1b81d5d24cd73ff12b3155ad4c43e833);
+            
+    
+            var marker_2d1848afb2967a8be48da7483838c261 = L.marker(
+                [29.576331160056796, -95.49824496675434],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_b9d89ca049e71aa7466d524cccc218ee = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_2d1848afb2967a8be48da7483838c261.setIcon(div_icon_b9d89ca049e71aa7466d524cccc218ee);
+        
+    
+        var popup_9930da3ae282c01e44706aa495fff23d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_965c3080f229a69e57d59b2ad749561d = $(`<div id="html_965c3080f229a69e57d59b2ad749561d" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_9930da3ae282c01e44706aa495fff23d.setContent(html_965c3080f229a69e57d59b2ad749561d);
+            
+        
+
+        marker_2d1848afb2967a8be48da7483838c261.bindPopup(popup_9930da3ae282c01e44706aa495fff23d)
+        ;
+
+        
+    
+    
+            marker_2d1848afb2967a8be48da7483838c261.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2d1848afb2967a8be48da7483838c261.setIcon(div_icon_b9d89ca049e71aa7466d524cccc218ee);
+            
+    
+            var marker_44345d20b1973c75dc7ac5f85332ba1a = L.marker(
+                [29.576331160056796, -95.39446705237373],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_48460b9a37534d580756e9f91a3a18f3 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_44345d20b1973c75dc7ac5f85332ba1a.setIcon(div_icon_48460b9a37534d580756e9f91a3a18f3);
+        
+    
+        var popup_38a75e301caa11e81fa9f8b4aafe4ec9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4994f53fe30c9ff2e3c3c7a2b8caf990 = $(`<div id="html_4994f53fe30c9ff2e3c3c7a2b8caf990" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_38a75e301caa11e81fa9f8b4aafe4ec9.setContent(html_4994f53fe30c9ff2e3c3c7a2b8caf990);
+            
+        
+
+        marker_44345d20b1973c75dc7ac5f85332ba1a.bindPopup(popup_38a75e301caa11e81fa9f8b4aafe4ec9)
+        ;
+
+        
+    
+    
+            marker_44345d20b1973c75dc7ac5f85332ba1a.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_44345d20b1973c75dc7ac5f85332ba1a.setIcon(div_icon_48460b9a37534d580756e9f91a3a18f3);
+            
+    
+            var marker_0541843f67687f5bf5429d6246290804 = L.marker(
+                [29.576331160056796, -95.2906891379931],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_d1959a8d48cf71f412834b30a50b86d1 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_0541843f67687f5bf5429d6246290804.setIcon(div_icon_d1959a8d48cf71f412834b30a50b86d1);
+        
+    
+        var popup_5b6d7c2f48037017cf6dcf0cbc722519 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d09548bcba0d3cc5115201701f7b9829 = $(`<div id="html_d09548bcba0d3cc5115201701f7b9829" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_5b6d7c2f48037017cf6dcf0cbc722519.setContent(html_d09548bcba0d3cc5115201701f7b9829);
+            
+        
+
+        marker_0541843f67687f5bf5429d6246290804.bindPopup(popup_5b6d7c2f48037017cf6dcf0cbc722519)
+        ;
+
+        
+    
+    
+            marker_0541843f67687f5bf5429d6246290804.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0541843f67687f5bf5429d6246290804.setIcon(div_icon_d1959a8d48cf71f412834b30a50b86d1);
+            
+    
+            var marker_88722d6514681bb118e2bf465e8f325f = L.marker(
+                [29.66626332064867, -95.8095787098962],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_99e9c46e8eeb573805396a98173c73e1 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                18.675213675213673\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_88722d6514681bb118e2bf465e8f325f.setIcon(div_icon_99e9c46e8eeb573805396a98173c73e1);
+        
+    
+        var popup_73bfa91815c043f2a0bcdfe24ea383f5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_31b1babc528ce876001fcab6c7729299 = $(`<div id="html_31b1babc528ce876001fcab6c7729299" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">18.675213675213673%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">92.3076923076923%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">13</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">92.3076923076923%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_73bfa91815c043f2a0bcdfe24ea383f5.setContent(html_31b1babc528ce876001fcab6c7729299);
+            
+        
+
+        marker_88722d6514681bb118e2bf465e8f325f.bindPopup(popup_73bfa91815c043f2a0bcdfe24ea383f5)
+        ;
+
+        
+    
+    
+            marker_88722d6514681bb118e2bf465e8f325f.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_88722d6514681bb118e2bf465e8f325f.setIcon(div_icon_99e9c46e8eeb573805396a98173c73e1);
+            
+    
+            var marker_1f51b2805b8a945b4e4bb0e69e731eda = L.marker(
+                [29.66626332064867, -95.70580079551559],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_539cf6d7b86ae328e4c70333e6aec861 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_1f51b2805b8a945b4e4bb0e69e731eda.setIcon(div_icon_539cf6d7b86ae328e4c70333e6aec861);
+        
+    
+        var popup_e276fb47c6131d64a5cdcfea7d3a8c1d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_74f6bc43b72cfea4d108c19950cbcc7a = $(`<div id="html_74f6bc43b72cfea4d108c19950cbcc7a" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_e276fb47c6131d64a5cdcfea7d3a8c1d.setContent(html_74f6bc43b72cfea4d108c19950cbcc7a);
+            
+        
+
+        marker_1f51b2805b8a945b4e4bb0e69e731eda.bindPopup(popup_e276fb47c6131d64a5cdcfea7d3a8c1d)
+        ;
+
+        
+    
+    
+            marker_1f51b2805b8a945b4e4bb0e69e731eda.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1f51b2805b8a945b4e4bb0e69e731eda.setIcon(div_icon_539cf6d7b86ae328e4c70333e6aec861);
+            
+    
+            var marker_52791f008dffec9e1fafcce6a61bebcd = L.marker(
+                [29.66626332064867, -95.60202288113496],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_74b18d1ce1c4e1738ca9383855076d90 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_52791f008dffec9e1fafcce6a61bebcd.setIcon(div_icon_74b18d1ce1c4e1738ca9383855076d90);
+        
+    
+        var popup_da49568827f0ede67e07f3883d497274 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c84fde0c1cd48694b2f3700da40a6c0d = $(`<div id="html_c84fde0c1cd48694b2f3700da40a6c0d" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_da49568827f0ede67e07f3883d497274.setContent(html_c84fde0c1cd48694b2f3700da40a6c0d);
+            
+        
+
+        marker_52791f008dffec9e1fafcce6a61bebcd.bindPopup(popup_da49568827f0ede67e07f3883d497274)
+        ;
+
+        
+    
+    
+            marker_52791f008dffec9e1fafcce6a61bebcd.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_52791f008dffec9e1fafcce6a61bebcd.setIcon(div_icon_74b18d1ce1c4e1738ca9383855076d90);
+            
+    
+            var marker_39a406e991d8ac370f0143d7f70e74ee = L.marker(
+                [29.66626332064867, -95.49824496675434],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_26593057592ca90028bf0f319cac36c2 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_39a406e991d8ac370f0143d7f70e74ee.setIcon(div_icon_26593057592ca90028bf0f319cac36c2);
+        
+    
+        var popup_46d55af07da11667d4519523e0c4a091 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c014aabb87cb60b447009b83ff9dc9f7 = $(`<div id="html_c014aabb87cb60b447009b83ff9dc9f7" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_46d55af07da11667d4519523e0c4a091.setContent(html_c014aabb87cb60b447009b83ff9dc9f7);
+            
+        
+
+        marker_39a406e991d8ac370f0143d7f70e74ee.bindPopup(popup_46d55af07da11667d4519523e0c4a091)
+        ;
+
+        
+    
+    
+            marker_39a406e991d8ac370f0143d7f70e74ee.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_39a406e991d8ac370f0143d7f70e74ee.setIcon(div_icon_26593057592ca90028bf0f319cac36c2);
+            
+    
+            var marker_f00889db40878166dc0ff5a92df50587 = L.marker(
+                [29.66626332064867, -95.39446705237373],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_f6049ed206fbb8212712aaac6f4c4e90 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_f00889db40878166dc0ff5a92df50587.setIcon(div_icon_f6049ed206fbb8212712aaac6f4c4e90);
+        
+    
+        var popup_ccced8ff815859f6b3caf2d7569af45f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3cc1503cda85177414fd36aa6912f560 = $(`<div id="html_3cc1503cda85177414fd36aa6912f560" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_ccced8ff815859f6b3caf2d7569af45f.setContent(html_3cc1503cda85177414fd36aa6912f560);
+            
+        
+
+        marker_f00889db40878166dc0ff5a92df50587.bindPopup(popup_ccced8ff815859f6b3caf2d7569af45f)
+        ;
+
+        
+    
+    
+            marker_f00889db40878166dc0ff5a92df50587.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f00889db40878166dc0ff5a92df50587.setIcon(div_icon_f6049ed206fbb8212712aaac6f4c4e90);
+            
+    
+            var marker_88b2ec2d9f0a001af4f45f06265b63a9 = L.marker(
+                [29.66626332064867, -95.2906891379931],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_206627e93424e289c406b02b2afbdea2 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_88b2ec2d9f0a001af4f45f06265b63a9.setIcon(div_icon_206627e93424e289c406b02b2afbdea2);
+        
+    
+        var popup_f587c307b748bed65aa6ebc227c930bb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_de190ef3c2d120d666ef5d00e3e12f93 = $(`<div id="html_de190ef3c2d120d666ef5d00e3e12f93" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_f587c307b748bed65aa6ebc227c930bb.setContent(html_de190ef3c2d120d666ef5d00e3e12f93);
+            
+        
+
+        marker_88b2ec2d9f0a001af4f45f06265b63a9.bindPopup(popup_f587c307b748bed65aa6ebc227c930bb)
+        ;
+
+        
+    
+    
+            marker_88b2ec2d9f0a001af4f45f06265b63a9.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_88b2ec2d9f0a001af4f45f06265b63a9.setIcon(div_icon_206627e93424e289c406b02b2afbdea2);
+            
+    
+            var marker_75cf7373ec0bbf49f6b9fc3dd6e55976 = L.marker(
+                [29.66626332064867, -95.18691122361248],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_44b79e917d1c73c899303a11ccba510b = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_75cf7373ec0bbf49f6b9fc3dd6e55976.setIcon(div_icon_44b79e917d1c73c899303a11ccba510b);
+        
+    
+        var popup_d29f9abbfaf4cf10e52dea5a7bb83fe6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9e7de01d09b404eab652524a62689c70 = $(`<div id="html_9e7de01d09b404eab652524a62689c70" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_d29f9abbfaf4cf10e52dea5a7bb83fe6.setContent(html_9e7de01d09b404eab652524a62689c70);
+            
+        
+
+        marker_75cf7373ec0bbf49f6b9fc3dd6e55976.bindPopup(popup_d29f9abbfaf4cf10e52dea5a7bb83fe6)
+        ;
+
+        
+    
+    
+            marker_75cf7373ec0bbf49f6b9fc3dd6e55976.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_75cf7373ec0bbf49f6b9fc3dd6e55976.setIcon(div_icon_44b79e917d1c73c899303a11ccba510b);
+            
+    
+            var marker_cf71e3ad6f36eb944b990e096cbd418d = L.marker(
+                [29.756195481240542, -95.91335662427683],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_fc14ca6dcbf291a7156bd1e1c7b7a745 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_cf71e3ad6f36eb944b990e096cbd418d.setIcon(div_icon_fc14ca6dcbf291a7156bd1e1c7b7a745);
+        
+    
+        var popup_fba5a761ee77f2f63cd5a874d616d71e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_95c9a1d8b30c818b9693d790aeda823a = $(`<div id="html_95c9a1d8b30c818b9693d790aeda823a" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_fba5a761ee77f2f63cd5a874d616d71e.setContent(html_95c9a1d8b30c818b9693d790aeda823a);
+            
+        
+
+        marker_cf71e3ad6f36eb944b990e096cbd418d.bindPopup(popup_fba5a761ee77f2f63cd5a874d616d71e)
+        ;
+
+        
+    
+    
+            marker_cf71e3ad6f36eb944b990e096cbd418d.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cf71e3ad6f36eb944b990e096cbd418d.setIcon(div_icon_fc14ca6dcbf291a7156bd1e1c7b7a745);
+            
+    
+            var marker_1ddccda980b7a24eae270cb95062b68e = L.marker(
+                [29.756195481240542, -95.8095787098962],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_854b57e035e623bfcb47940c1e3bcf0b = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_1ddccda980b7a24eae270cb95062b68e.setIcon(div_icon_854b57e035e623bfcb47940c1e3bcf0b);
+        
+    
+        var popup_d37bc27fd042c283057f0a84606b67ed = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b7d536953f168d24d2c783cf3f36cac8 = $(`<div id="html_b7d536953f168d24d2c783cf3f36cac8" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_d37bc27fd042c283057f0a84606b67ed.setContent(html_b7d536953f168d24d2c783cf3f36cac8);
+            
+        
+
+        marker_1ddccda980b7a24eae270cb95062b68e.bindPopup(popup_d37bc27fd042c283057f0a84606b67ed)
+        ;
+
+        
+    
+    
+            marker_1ddccda980b7a24eae270cb95062b68e.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1ddccda980b7a24eae270cb95062b68e.setIcon(div_icon_854b57e035e623bfcb47940c1e3bcf0b);
+            
+    
+            var marker_dc1d86b1ae3dc11c60f1dbf656297580 = L.marker(
+                [29.756195481240542, -95.70580079551559],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_5c842c3a2ddc5dd45b3f6aeb5d0506cc = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_dc1d86b1ae3dc11c60f1dbf656297580.setIcon(div_icon_5c842c3a2ddc5dd45b3f6aeb5d0506cc);
+        
+    
+        var popup_610d4f1a17a58395605a504eb8342d79 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_da12c17ab85491312b40340aee14704f = $(`<div id="html_da12c17ab85491312b40340aee14704f" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_610d4f1a17a58395605a504eb8342d79.setContent(html_da12c17ab85491312b40340aee14704f);
+            
+        
+
+        marker_dc1d86b1ae3dc11c60f1dbf656297580.bindPopup(popup_610d4f1a17a58395605a504eb8342d79)
+        ;
+
+        
+    
+    
+            marker_dc1d86b1ae3dc11c60f1dbf656297580.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dc1d86b1ae3dc11c60f1dbf656297580.setIcon(div_icon_5c842c3a2ddc5dd45b3f6aeb5d0506cc);
+            
+    
+            var marker_14ecae22902a7cfaccac6a95a23716fb = L.marker(
+                [29.756195481240542, -95.60202288113496],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_72c3f676f26ff524567d0af871d3dfb2 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_14ecae22902a7cfaccac6a95a23716fb.setIcon(div_icon_72c3f676f26ff524567d0af871d3dfb2);
+        
+    
+        var popup_a8bf999aa6a3c71f2352c8db543a4453 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_99a26d6f0688fcbae44df11912853c16 = $(`<div id="html_99a26d6f0688fcbae44df11912853c16" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_a8bf999aa6a3c71f2352c8db543a4453.setContent(html_99a26d6f0688fcbae44df11912853c16);
+            
+        
+
+        marker_14ecae22902a7cfaccac6a95a23716fb.bindPopup(popup_a8bf999aa6a3c71f2352c8db543a4453)
+        ;
+
+        
+    
+    
+            marker_14ecae22902a7cfaccac6a95a23716fb.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_14ecae22902a7cfaccac6a95a23716fb.setIcon(div_icon_72c3f676f26ff524567d0af871d3dfb2);
+            
+    
+            var marker_d14891242a04ecafa4f8e35178838ed8 = L.marker(
+                [29.756195481240542, -95.49824496675434],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_dbb573e51d2128cb0652a638ac82a976 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_d14891242a04ecafa4f8e35178838ed8.setIcon(div_icon_dbb573e51d2128cb0652a638ac82a976);
+        
+    
+        var popup_031abb959d5af9dadd3b32e9246c1ca0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9a93534ba31a1def705fde5a6e6ec137 = $(`<div id="html_9a93534ba31a1def705fde5a6e6ec137" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_031abb959d5af9dadd3b32e9246c1ca0.setContent(html_9a93534ba31a1def705fde5a6e6ec137);
+            
+        
+
+        marker_d14891242a04ecafa4f8e35178838ed8.bindPopup(popup_031abb959d5af9dadd3b32e9246c1ca0)
+        ;
+
+        
+    
+    
+            marker_d14891242a04ecafa4f8e35178838ed8.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d14891242a04ecafa4f8e35178838ed8.setIcon(div_icon_dbb573e51d2128cb0652a638ac82a976);
+            
+    
+            var marker_d1481cfe5e11ef329882e78f84c23561 = L.marker(
+                [29.756195481240542, -95.39446705237373],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_2246465198254f2a138ac54b204ac695 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_d1481cfe5e11ef329882e78f84c23561.setIcon(div_icon_2246465198254f2a138ac54b204ac695);
+        
+    
+        var popup_541c2805a5930d65a89bac08e4a21fa1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9a081d49bd7b41a5cdfcd28959e88b9f = $(`<div id="html_9a081d49bd7b41a5cdfcd28959e88b9f" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_541c2805a5930d65a89bac08e4a21fa1.setContent(html_9a081d49bd7b41a5cdfcd28959e88b9f);
+            
+        
+
+        marker_d1481cfe5e11ef329882e78f84c23561.bindPopup(popup_541c2805a5930d65a89bac08e4a21fa1)
+        ;
+
+        
+    
+    
+            marker_d1481cfe5e11ef329882e78f84c23561.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d1481cfe5e11ef329882e78f84c23561.setIcon(div_icon_2246465198254f2a138ac54b204ac695);
+            
+    
+            var marker_73ad532ef4688e5523ba47ce2c770116 = L.marker(
+                [29.756195481240542, -95.2906891379931],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_b7b488d6c46d44f9e33d851a1e273b8f = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_73ad532ef4688e5523ba47ce2c770116.setIcon(div_icon_b7b488d6c46d44f9e33d851a1e273b8f);
+        
+    
+        var popup_4c10298ab4ea1c066a30a8142efbb985 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a12286350c37dfe79420f8790c76a4e7 = $(`<div id="html_a12286350c37dfe79420f8790c76a4e7" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_4c10298ab4ea1c066a30a8142efbb985.setContent(html_a12286350c37dfe79420f8790c76a4e7);
+            
+        
+
+        marker_73ad532ef4688e5523ba47ce2c770116.bindPopup(popup_4c10298ab4ea1c066a30a8142efbb985)
+        ;
+
+        
+    
+    
+            marker_73ad532ef4688e5523ba47ce2c770116.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_73ad532ef4688e5523ba47ce2c770116.setIcon(div_icon_b7b488d6c46d44f9e33d851a1e273b8f);
+            
+    
+            var marker_d6f548233503697783cc35c223506ca2 = L.marker(
+                [29.756195481240542, -95.18691122361248],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_27e3313187e0ba652a2803bc9b910c96 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                18.88888888888889\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_d6f548233503697783cc35c223506ca2.setIcon(div_icon_27e3313187e0ba652a2803bc9b910c96);
+        
+    
+        var popup_bd506ce42139d666ac010c8bb78733fb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5bc6a81a8da4faf7e215f55461e16c30 = $(`<div id="html_5bc6a81a8da4faf7e215f55461e16c30" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">18.88888888888889%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_bd506ce42139d666ac010c8bb78733fb.setContent(html_5bc6a81a8da4faf7e215f55461e16c30);
+            
+        
+
+        marker_d6f548233503697783cc35c223506ca2.bindPopup(popup_bd506ce42139d666ac010c8bb78733fb)
+        ;
+
+        
+    
+    
+            marker_d6f548233503697783cc35c223506ca2.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d6f548233503697783cc35c223506ca2.setIcon(div_icon_27e3313187e0ba652a2803bc9b910c96);
+            
+    
+            var marker_4093c4b2abb45c2d23d7af92c99aefa3 = L.marker(
+                [29.756195481240542, -95.08313330923185],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_edfd914cf2f4df58f3a115933c4d9669 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_4093c4b2abb45c2d23d7af92c99aefa3.setIcon(div_icon_edfd914cf2f4df58f3a115933c4d9669);
+        
+    
+        var popup_9661f919c9cfac4a0ff5b241c4fc7e7f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e7ae7da237557656dc8f7562089fb6e5 = $(`<div id="html_e7ae7da237557656dc8f7562089fb6e5" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_9661f919c9cfac4a0ff5b241c4fc7e7f.setContent(html_e7ae7da237557656dc8f7562089fb6e5);
+            
+        
+
+        marker_4093c4b2abb45c2d23d7af92c99aefa3.bindPopup(popup_9661f919c9cfac4a0ff5b241c4fc7e7f)
+        ;
+
+        
+    
+    
+            marker_4093c4b2abb45c2d23d7af92c99aefa3.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4093c4b2abb45c2d23d7af92c99aefa3.setIcon(div_icon_edfd914cf2f4df58f3a115933c4d9669);
+            
+    
+            var marker_f889e6ca6c7039f000c760af0ecb41a1 = L.marker(
+                [29.846127641832418, -95.91335662427683],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_e4d615ee2ce2ef347c05d082bbc6e212 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                10.0\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_f889e6ca6c7039f000c760af0ecb41a1.setIcon(div_icon_e4d615ee2ce2ef347c05d082bbc6e212);
+        
+    
+        var popup_e73a6c6f6c0c5657d8873e53f88f6580 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ec7e6c502ec6053236bf8297826c2b7d = $(`<div id="html_ec7e6c502ec6053236bf8297826c2b7d" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">10.0%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_e73a6c6f6c0c5657d8873e53f88f6580.setContent(html_ec7e6c502ec6053236bf8297826c2b7d);
+            
+        
+
+        marker_f889e6ca6c7039f000c760af0ecb41a1.bindPopup(popup_e73a6c6f6c0c5657d8873e53f88f6580)
+        ;
+
+        
+    
+    
+            marker_f889e6ca6c7039f000c760af0ecb41a1.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f889e6ca6c7039f000c760af0ecb41a1.setIcon(div_icon_e4d615ee2ce2ef347c05d082bbc6e212);
+            
+    
+            var marker_acec26e96391f66e368daf4cb1336045 = L.marker(
+                [29.846127641832418, -95.8095787098962],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_587cfd71e30427c028ef60909ad8d98f = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                14.444444444444446\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_acec26e96391f66e368daf4cb1336045.setIcon(div_icon_587cfd71e30427c028ef60909ad8d98f);
+        
+    
+        var popup_433e746af734a427c825fb17427fc43a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bc3e2d2b961d77c4ae48e7afa318c6f0 = $(`<div id="html_bc3e2d2b961d77c4ae48e7afa318c6f0" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">14.444444444444446%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">94.44444444444444%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">18</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">94.44444444444444%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_433e746af734a427c825fb17427fc43a.setContent(html_bc3e2d2b961d77c4ae48e7afa318c6f0);
+            
+        
+
+        marker_acec26e96391f66e368daf4cb1336045.bindPopup(popup_433e746af734a427c825fb17427fc43a)
+        ;
+
+        
+    
+    
+            marker_acec26e96391f66e368daf4cb1336045.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_acec26e96391f66e368daf4cb1336045.setIcon(div_icon_587cfd71e30427c028ef60909ad8d98f);
+            
+    
+            var marker_aea07ddbc31623e624b7430c24050a57 = L.marker(
+                [29.846127641832418, -95.70580079551559],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_973c993a405bfba97d299418ef5f42d5 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                10.0\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_aea07ddbc31623e624b7430c24050a57.setIcon(div_icon_973c993a405bfba97d299418ef5f42d5);
+        
+    
+        var popup_269540d6b20669f1250c3fdcd624b8c2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8e979c17d3234b1abfdcb0ef640ea2b8 = $(`<div id="html_8e979c17d3234b1abfdcb0ef640ea2b8" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">10.0%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_269540d6b20669f1250c3fdcd624b8c2.setContent(html_8e979c17d3234b1abfdcb0ef640ea2b8);
+            
+        
+
+        marker_aea07ddbc31623e624b7430c24050a57.bindPopup(popup_269540d6b20669f1250c3fdcd624b8c2)
+        ;
+
+        
+    
+    
+            marker_aea07ddbc31623e624b7430c24050a57.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_aea07ddbc31623e624b7430c24050a57.setIcon(div_icon_973c993a405bfba97d299418ef5f42d5);
+            
+    
+            var marker_cb4ab07f03da3539deb00374bba2f38a = L.marker(
+                [29.846127641832418, -95.60202288113496],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_90b5e7d1281e8564a3c7c7f602c7dc76 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                10.0\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_cb4ab07f03da3539deb00374bba2f38a.setIcon(div_icon_90b5e7d1281e8564a3c7c7f602c7dc76);
+        
+    
+        var popup_3302fc272abb0bd173838f303c136d30 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_87295c55598e5887bc0bb8a4bec35618 = $(`<div id="html_87295c55598e5887bc0bb8a4bec35618" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">10.0%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_3302fc272abb0bd173838f303c136d30.setContent(html_87295c55598e5887bc0bb8a4bec35618);
+            
+        
+
+        marker_cb4ab07f03da3539deb00374bba2f38a.bindPopup(popup_3302fc272abb0bd173838f303c136d30)
+        ;
+
+        
+    
+    
+            marker_cb4ab07f03da3539deb00374bba2f38a.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cb4ab07f03da3539deb00374bba2f38a.setIcon(div_icon_90b5e7d1281e8564a3c7c7f602c7dc76);
+            
+    
+            var marker_08e048008cb583870eeafef1a73b6e38 = L.marker(
+                [29.846127641832418, -95.49824496675434],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_4da6ba0f18c5033d881afdbb1f6accf7 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                10.0\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_08e048008cb583870eeafef1a73b6e38.setIcon(div_icon_4da6ba0f18c5033d881afdbb1f6accf7);
+        
+    
+        var popup_70d5f7a5631b684d24a479094b200685 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0fdb9974013fd744591dd5ac0f3a4331 = $(`<div id="html_0fdb9974013fd744591dd5ac0f3a4331" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">10.0%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_70d5f7a5631b684d24a479094b200685.setContent(html_0fdb9974013fd744591dd5ac0f3a4331);
+            
+        
+
+        marker_08e048008cb583870eeafef1a73b6e38.bindPopup(popup_70d5f7a5631b684d24a479094b200685)
+        ;
+
+        
+    
+    
+            marker_08e048008cb583870eeafef1a73b6e38.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_08e048008cb583870eeafef1a73b6e38.setIcon(div_icon_4da6ba0f18c5033d881afdbb1f6accf7);
+            
+    
+            var marker_9ffd9a75e04d2cad9a15768046f7fbd8 = L.marker(
+                [29.846127641832418, -95.39446705237373],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_405ffce2721a89eeeab8f3a505622824 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                10.0\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_9ffd9a75e04d2cad9a15768046f7fbd8.setIcon(div_icon_405ffce2721a89eeeab8f3a505622824);
+        
+    
+        var popup_0297ca0edf7839b9aecfb26e214b5b28 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d51c176bb3a82df3f79118041ba39ef0 = $(`<div id="html_d51c176bb3a82df3f79118041ba39ef0" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">10.0%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_0297ca0edf7839b9aecfb26e214b5b28.setContent(html_d51c176bb3a82df3f79118041ba39ef0);
+            
+        
+
+        marker_9ffd9a75e04d2cad9a15768046f7fbd8.bindPopup(popup_0297ca0edf7839b9aecfb26e214b5b28)
+        ;
+
+        
+    
+    
+            marker_9ffd9a75e04d2cad9a15768046f7fbd8.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9ffd9a75e04d2cad9a15768046f7fbd8.setIcon(div_icon_405ffce2721a89eeeab8f3a505622824);
+            
+    
+            var marker_a347abb0de650f6454b429aca6fede1c = L.marker(
+                [29.846127641832418, -95.2906891379931],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_9b43e3dcbf4901200ea2778a031e9293 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                10.0\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_a347abb0de650f6454b429aca6fede1c.setIcon(div_icon_9b43e3dcbf4901200ea2778a031e9293);
+        
+    
+        var popup_4d3113bdd9e110208f8da01954f6b9ab = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_80c35fa10c1d0d310319536138d07c17 = $(`<div id="html_80c35fa10c1d0d310319536138d07c17" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">10.0%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_4d3113bdd9e110208f8da01954f6b9ab.setContent(html_80c35fa10c1d0d310319536138d07c17);
+            
+        
+
+        marker_a347abb0de650f6454b429aca6fede1c.bindPopup(popup_4d3113bdd9e110208f8da01954f6b9ab)
+        ;
+
+        
+    
+    
+            marker_a347abb0de650f6454b429aca6fede1c.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a347abb0de650f6454b429aca6fede1c.setIcon(div_icon_9b43e3dcbf4901200ea2778a031e9293);
+            
+    
+            var marker_b5c473bf2a6bccfdc503a80efb28c764 = L.marker(
+                [29.846127641832418, -95.18691122361248],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_d1213503f7348b8f6fdb5b71741cc2fb = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                10.0\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_b5c473bf2a6bccfdc503a80efb28c764.setIcon(div_icon_d1213503f7348b8f6fdb5b71741cc2fb);
+        
+    
+        var popup_b73644ebd3696eb933f952f40a4824a5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d230e2f9ca439f461e77b7ae8a66c70c = $(`<div id="html_d230e2f9ca439f461e77b7ae8a66c70c" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">10.0%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_b73644ebd3696eb933f952f40a4824a5.setContent(html_d230e2f9ca439f461e77b7ae8a66c70c);
+            
+        
+
+        marker_b5c473bf2a6bccfdc503a80efb28c764.bindPopup(popup_b73644ebd3696eb933f952f40a4824a5)
+        ;
+
+        
+    
+    
+            marker_b5c473bf2a6bccfdc503a80efb28c764.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b5c473bf2a6bccfdc503a80efb28c764.setIcon(div_icon_d1213503f7348b8f6fdb5b71741cc2fb);
+            
+    
+            var marker_36c75f5407a18ebeb15d9a3aaced218c = L.marker(
+                [29.846127641832418, -95.08313330923185],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_6083cfa586b381e82ab039c933fc6e19 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                10.0\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_36c75f5407a18ebeb15d9a3aaced218c.setIcon(div_icon_6083cfa586b381e82ab039c933fc6e19);
+        
+    
+        var popup_2f3d2ae84a506b7b4c3a32b0aac03039 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fad72cee6ca66ec476ad148e6a99fedb = $(`<div id="html_fad72cee6ca66ec476ad148e6a99fedb" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">10.0%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_2f3d2ae84a506b7b4c3a32b0aac03039.setContent(html_fad72cee6ca66ec476ad148e6a99fedb);
+            
+        
+
+        marker_36c75f5407a18ebeb15d9a3aaced218c.bindPopup(popup_2f3d2ae84a506b7b4c3a32b0aac03039)
+        ;
+
+        
+    
+    
+            marker_36c75f5407a18ebeb15d9a3aaced218c.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_36c75f5407a18ebeb15d9a3aaced218c.setIcon(div_icon_6083cfa586b381e82ab039c933fc6e19);
+            
+    
+            var marker_8a18fe1fb15d76ac94e4bc966168a162 = L.marker(
+                [29.93605980242429, -96.01713453865744],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_0567d3e3038bb0ea5c7682afb5a227fc = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                10.0\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_8a18fe1fb15d76ac94e4bc966168a162.setIcon(div_icon_0567d3e3038bb0ea5c7682afb5a227fc);
+        
+    
+        var popup_8e441bbf9981b395a8b1b5f471448c81 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f36d94a8e0c0951a1adadcfccbf3f3e5 = $(`<div id="html_f36d94a8e0c0951a1adadcfccbf3f3e5" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">10.0%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_8e441bbf9981b395a8b1b5f471448c81.setContent(html_f36d94a8e0c0951a1adadcfccbf3f3e5);
+            
+        
+
+        marker_8a18fe1fb15d76ac94e4bc966168a162.bindPopup(popup_8e441bbf9981b395a8b1b5f471448c81)
+        ;
+
+        
+    
+    
+            marker_8a18fe1fb15d76ac94e4bc966168a162.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8a18fe1fb15d76ac94e4bc966168a162.setIcon(div_icon_0567d3e3038bb0ea5c7682afb5a227fc);
+            
+    
+            var marker_b569b2b9c288a565e2ff4e953166743d = L.marker(
+                [29.93605980242429, -95.91335662427683],
+                {
+}
+            ).addTo(map_c93eb27753f34e59b9cc009511d34fe0);
+        
+    
+            var div_icon_28502bb65447c0106fb657ffda1f56c3 = L.divIcon({
+  "html": "\n\n        \u003cdiv style=\"position: relative; width: 30px; height: 50px;\"\u003e\n\n            \u003c!-- Number Box Above Marker --\u003e\n            \u003cdiv style=\"\n                position: absolute;\n                top: -20px;\n                left: 50%;\n                transform: translateX(-50%);\n                background-color: #212529;\n                color: white;\n                padding: 3px 8px;\n                font-size: 12px;\n                font-weight: bold;\n                border-radius: 4px;\n                box-shadow: 0px 2px 4px rgba(0,0,0,0.3);\n                z-index: 10;\n            \"\u003e\n                10.0\n            \u003c/div\u003e\n\n            \u003c!-- Marker Shape --\u003e\n            \u003csvg width=\"30\" height=\"50\" viewBox=\"0 0 30 50\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n                \u003cpath d=\"M15,0 C22,-2 30,8 30,18 C30,28 15,45 15,50 C15,45 0,28 0,18 C0,8 8,-2 15,0 Z\"\n                    fill=\"yellow\"\n                    stroke=\"none\" /\u003e\n\n                \u003c!-- Inner Circle --\u003e\n                \u003ccircle cx=\"15\" cy=\"18\" r=\"6\"\n                    fill=\"rgba(255,255,255,0.8)\"\n                    stroke=\"yellow\"\n                    stroke-width=\"1\" /\u003e\n            \u003c/svg\u003e\n        \u003c/div\u003e\n",
+  "iconSize": [30, 50],
+  "iconAnchor": [15, 50],
+  "className": "empty",
+});
+            marker_b569b2b9c288a565e2ff4e953166743d.setIcon(div_icon_28502bb65447c0106fb657ffda1f56c3);
+        
+    
+        var popup_6cb8f89df084b6c01754c40ad23f819b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_31989c9c73554228683c382155f4f6ed = $(`<div id="html_31989c9c73554228683c382155f4f6ed" style="width: 100.0%; height: 100.0%;">     <div style="         font-family: Arial, sans-serif;         background-color: #fff;         padding: 12px;         border-radius: 8px;         box-shadow: 0 2px 8px rgba(0,0,0,0.1);         border: 1px solid #ddd;         max-width: 280px;     ">         <h2 style="             margin-top: 0;             font-size: 16px;             color: #212529;             border-bottom: 2px solid #007bff;             padding-bottom: 4px;         ">             Keyword Performance: <span style="color: #007bff;">10.0%</span>         </h2>              <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Vape shop</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          <div style="         padding: 8px;         border-bottom: 1px solid #eee;         font-family: Arial, sans-serif;         color: #212529;     ">         <strong style="font-size: 14px; color: #007bff;">Restaurant</strong>         <div style="margin-top: 4px; font-size: 12px; color: #6c757d;">             Percentage: <span style="color: #28a745; font-weight: bold;">50.0%</span><br>             Position: <span style="color: #ffc107; font-weight: bold;">2</span><br>             Against all businesses: <span style="color: #dc3545; font-weight: bold;">50.0%</span>         </div>     </div>          </div>     </div>`)[0];
+                popup_6cb8f89df084b6c01754c40ad23f819b.setContent(html_31989c9c73554228683c382155f4f6ed);
+            
+        
+
+        marker_b569b2b9c288a565e2ff4e953166743d.bindPopup(popup_6cb8f89df084b6c01754c40ad23f819b)
+        ;
+
+        
+    
+    
+            marker_b569b2b9c288a565e2ff4e953166743d.bindTooltip(
+                `<div>
+                     See more info
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b569b2b9c288a565e2ff4e953166743d.setIcon(div_icon_28502bb65447c0106fb657ffda1f56c3);
+            
+</script>
+</html>

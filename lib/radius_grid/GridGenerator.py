@@ -11,6 +11,7 @@ import threading
 # from lib.radius_grid_rules.KeywordRankingRule import AnalyzeRankingWithKeywordsReturnParams
 from lib.radius_grid.ShowMap import ShowMap
 from lib.utilities.thread_handler_execution import thread_handler_execution
+from services.scraping.main import ScrapeGoogleMapsSearch
 
 
 class GridGenerator ():
@@ -49,15 +50,17 @@ class GridGenerator ():
 
         return grid
 
-    async def search_places(self, lat, lng, keywords, cid, search_by_scrapping=False):
+    async def search_places(self, lat, lng, keywords, cid, search_by_scrapping=False, **kwargs):
         try:
 
             if search_by_scrapping:
+
                 result = await self.ranking_by_scrapping_rules.analyze_ranking_by_keywords(
                     business_name=cid,
                     keywords=keywords,
                     lat=lat,
-                    lng=lng
+                    lng=lng,
+                    **kwargs
                 )
             else:
                 pass
@@ -74,13 +77,15 @@ class GridGenerator ():
 
         grid_points = self.generate_grid(lat, lng, radius_km, step_km)
 
+        # pw_instance = await ScrapeGoogleMapsSearch.playwright_instance()
+
         thread_execution = await thread_handler_execution(
             arr=grid_points,
             callback=lambda chunk: asyncio.gather(
                 *(self.search_places(ch[0], ch[1], keywords, cid, search_businesses_by_scrapping) for ch in chunk)
             ),
-            max_workers=5,
-            max_thread_pools=10
+            max_workers=10,
+            max_thread_pools=3
         )
 
         # tasks = [asyncio.to_thread(self.search_places,
@@ -106,7 +111,7 @@ class GridGenerator ():
             step_km=step_km,
             search_businesses_by_scrapping=search_businesses_by_scrapping
         )
-
+        
         self.map.show_map(lat, lng, places, "philly")
 
         return places

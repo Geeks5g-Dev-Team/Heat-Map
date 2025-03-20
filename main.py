@@ -17,9 +17,11 @@ async def main():
         cid="Bammel S.M.O.K.E Shop | CBD| Kratom| Vape Shop| Hookah| Delta 8| THC-O| THC Vape | THC Flower",
         keywords=[
             "Vape shop",
-            "Restaurant"
+            # "Bammel SMOKE near me",
+            # "I want to smoke"
+            # "Restaurant"
         ],
-        radius_km=2,
+        radius_km=50,
         step_km=1
     )
 

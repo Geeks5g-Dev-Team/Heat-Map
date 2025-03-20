@@ -54,6 +54,6 @@ class Folium ():
             icon=folium.DivIcon(
                 icon_size=(30, 50),
                 icon_anchor=(15, 50),
-                html=map_marker_icon(color, rank.average_percentage)
+                html=map_marker_icon(color, rank.final_rank)
             )
         )
