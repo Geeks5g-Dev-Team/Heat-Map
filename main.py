@@ -21,8 +21,6 @@ async def main():
             # "I want to smoke"
             # "Restaurant"
         ],
-        radius_km=50,
-        step_km=1
     )
 
     spinner.stop()

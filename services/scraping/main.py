@@ -114,13 +114,14 @@ class ScrapeGoogleMapsSearch:
 
         await self.page.goto("https://www.google.com/maps", timeout=120000)
 
-        await self.page.wait_for_url("**://www.google.com/maps/**", timeout=120000)
+        # await self.page.wait_for_url("**://www.google.com/maps/**", timeout=120000)
 
         scrape_data = {}
         for k in keywords:
             self.current_keyword = k
             # await self.page.reload()
             scrape_data[k] = await self.search(k)
+            # time.sleep(1000)
 
         if close_context:
             await context.close()

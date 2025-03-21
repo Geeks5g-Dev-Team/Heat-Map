@@ -3,10 +3,11 @@ from typing import Literal
 from lib.radius_grid_rules.RankRule import RankRule
 from datatypes.KeywordRankingRuleDatatypes import AnalyzeRankingWithKeywordsReturnParams
 from datatypes.KeywordRankingRuleByScrappingDatatypes import FinalRankAnalysis
-from public.html.map_marker_icon import map_marker_icon
+from public.html.map_marker_icon import map_marker_icon, map_star_marker, map_x_marker, map_flag_marker
 
 TileTypes = Literal["", "MAPNIK", "DE", "CH", "FRANCE", "HOT", "BZH", "CAT", "OSM_ENGLISH",
-                    "TOPO_MAP", "ALIDADE_SMOOTH", "ALIDADE_SMOOTH_DARK", "ALIDADE_SATELLITE", "TRANSPORT_DARK"]
+                    "TOPO_MAP", "ALIDADE_SMOOTH", "ALIDADE_SMOOTH_DARK", "ALIDADE_SATELLITE", "TRANSPORT_DARK",
+                    "OPEN_STREET_MAP_DE"]
 
 
 class Folium ():
@@ -23,6 +24,9 @@ class Folium ():
         if tile_type == "ALIDADE_SATELLITE":
             tiles = ""
             attr = ""
+        elif tile_type == "OPEN_STREET_MAP_DE":
+            tiles = "https://tile.openstreetmap.de/{z}/{x}/{y}.png"
+            attr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 
         return folium.Map(
             **fm_keys,
@@ -30,7 +34,7 @@ class Folium ():
             attr=attr
         )
 
-    def marker_number(self, rank: AnalyzeRankingWithKeywordsReturnParams | FinalRankAnalysis, **fm_keys: folium.Marker):
+    def marker_number(self, rank: FinalRankAnalysis, **fm_keys: folium.Marker):
 
         color_type = self.rank_math_rules.avg_number_into_icon_info(
             rank.average_percentage)
@@ -38,22 +42,26 @@ class Folium ():
 
         if color_type == "success":
             color = "green"
+            mark_design = map_marker_icon if rank.final_rank != 1 else map_star_marker
 
         elif color_type == "danger":
             color = "red"
+            mark_design = map_x_marker
 
         elif color_type == "warn":
             color = "yellow"
+            mark_design = map_flag_marker
 
         elif color_type == "info":
             color = "#dc3545"
+            mark_design = map_marker_icon
 
-        print(color_type)
         return folium.Marker(
             **fm_keys,
             icon=folium.DivIcon(
                 icon_size=(30, 50),
                 icon_anchor=(15, 50),
-                html=map_marker_icon(color, rank.final_rank)
+                html=mark_design(
+                    color, rank.final_rank if rank.final_rank != 0 else "20+")
             )
         )

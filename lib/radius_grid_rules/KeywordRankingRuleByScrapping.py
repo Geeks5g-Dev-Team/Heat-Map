@@ -32,7 +32,7 @@ class KeywordRankingRuleByScrapping ():
                         location=target,
                         ranking=self.rank_rule.TARGET_VALUE,
                         percentage=self.rank_rule.set_percentage_within_a_number(
-                            i+1, self.rank_rule.TARGET_VALUE)
+                            i+1, self.rank_rule.TARGET_VALUE, False)
                     )
                     break
                 i += 1
@@ -81,5 +81,5 @@ class KeywordRankingRuleByScrapping ():
             lng=lng,
             average_percentage=int(avg_percentage),
             final_rank=int(
-                self.rank_rule.set_number_against_percentage(avg_percentage))
+                self.rank_rule.set_number_against_percentage(avg_percentage, False))
         )

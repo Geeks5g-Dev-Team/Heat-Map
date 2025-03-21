@@ -8,9 +8,10 @@ class RankRule ():
 
     TARGET_VALUE = 20
 
-    def set_percentage_within_a_number(self, num1, num2):
+    def set_percentage_within_a_number(self, num1, num2, down_to_up=True):
 
-        return (num1 * 100) / num2
+        percentage = (num1 * 100) / num2
+        return percentage if down_to_up else 100 - percentage
 
     def get_percentage_value(self, value, percentage):
 
@@ -29,7 +30,10 @@ class RankRule ():
 
         self.set_percentage_within_a_number(ranks.rank, ranks.ranking)
 
-    def set_number_against_percentage(self, percentage):
+    def set_number_against_percentage(self, percentage, down_to_up=True):
+
+        if not down_to_up:
+            percentage = 100 - percentage
 
         return (percentage / 100) * self.TARGET_VALUE
 
@@ -37,9 +41,9 @@ class RankRule ():
 
         if grid_rank > 70:
             return "success"
-        elif 40 <= grid_rank <= 60:
+        elif 40 <= grid_rank <= 70:
             return "info"
-        elif 10 <= grid_rank <= 30:
+        elif 10 <= grid_rank <= 39:
             return "warn"
         else:
             return "danger"

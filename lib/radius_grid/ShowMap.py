@@ -19,7 +19,7 @@ class ShowMap():
 
         map_center = (lat, lng)
         m = self.fm.map(
-            "BZH",
+            "OPEN_STREET_MAP_DE",
             location=map_center,
             zoom_start=14
         )
